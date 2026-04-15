@@ -27,25 +27,25 @@ Resources:
           Type: HttpApi
           Properties:
             Path: /{id}/tag/{key}/{value}
-            Method: POST
+            Method: GET
             ApiId: !Ref ResourceManagerApi
         RootDirectAction:
           Type: HttpApi
           Properties:
             Path: /{id}/{action}
-            Method: POST
+            Method: GET
             ApiId: !Ref ResourceManagerApi
         TagAction:
           Type: HttpApi
           Properties:
             Path: /resources/{id}/tag/{key}/{value}
-            Method: POST
+            Method: GET
             ApiId: !Ref ResourceManagerApi
         DirectAction:
           Type: HttpApi
           Properties:
             Path: /resources/{id}/{action}
-            Method: POST
+            Method: GET
             ApiId: !Ref ResourceManagerApi
         StartResources:
           Type: HttpApi

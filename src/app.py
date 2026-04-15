@@ -211,6 +211,13 @@ def lambda_handler(event, context):
 
     tag_filters = get_tag_filters(body)
     
+    # Safety: Require tags for bulk operations to avoid accidental mass actions
+    if not tag_filters:
+        return {
+            'statusCode': 400,
+            'body': json.dumps({'error': 'Tag filters are required for bulk operations. Pass "tags": {"key": "value"} in the request body.'})
+        }
+    
     results = {
         'action': action,
         'processed': [],
